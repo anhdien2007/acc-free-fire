@@ -216,9 +216,10 @@ td input, td select{
   .pill input{min-width:200px}
 }
 @media (max-width: 640px){
-  .desktopOnly{display:none}
-  .mobileOnly{display:block}
-  .pill input{min-width:160px}
+  .desktopOnly{display:block}
+  .mobileOnly{display:none}
+  .tableWrap{overflow-x:auto}
+}
 }
 @media (min-width: 641px){
   .mobileOnly{display:none}
@@ -235,4 +236,5 @@ select{
 select option{
   background-color: #070f2e;
   color: #eaf0ff;
+
 }
