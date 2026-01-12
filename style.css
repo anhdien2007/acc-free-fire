@@ -1,0 +1,238 @@
+:root{
+  --bg:#070A12;
+  --card:#0F1636;
+  --card2:#0B1026;
+  --stroke:rgba(255,255,255,.12);
+  --text:#EAF0FF;
+  --muted:#A8B3D6;
+  --brand:#8A5CFF;
+  --brand2:#00D4FF;
+  --danger:#FF3B5C;
+  --good:#26E7A6;
+  --shadow:0 22px 70px rgba(0,0,0,.45);
+  --r:18px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background: var(--bg);
+  color:var(--text);
+}
+
+.bg-glow{
+  position:fixed; inset:-200px;
+  background:
+    radial-gradient(900px 600px at 12% 0%, rgba(138,92,255,.30), transparent 60%),
+    radial-gradient(800px 520px at 92% 10%, rgba(0,212,255,.18), transparent 55%);
+  filter: blur(20px);
+  pointer-events:none;
+  opacity:.9;
+}
+
+.wrap{max-width:1200px;margin:0 auto;padding:18px;position:relative}
+
+.hidden{display:none}
+.muted{color:var(--muted);font-size:12px}
+h1{margin:0;font-size:20px}
+h2{margin:0;font-size:16px}
+p{margin:6px 0 0 0}
+
+.card{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid var(--stroke);
+  border-radius:var(--r);
+  padding:14px;
+  box-shadow: var(--shadow);
+}
+
+.cardHeader{
+  display:flex; align-items:flex-start; justify-content:space-between;
+  gap:14px; margin-bottom:10px;
+}
+
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.brand{display:flex; gap:10px; align-items:center}
+.title{font-weight:800; letter-spacing:.2px}
+.subtitle{margin-top:2px}
+
+.logoDot{
+  width:14px;height:14px;border-radius:999px;
+  background: linear-gradient(135deg, var(--brand), var(--brand2));
+  box-shadow: 0 0 0 6px rgba(138,92,255,.12);
+}
+
+.topActions{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+
+.pill{
+  display:flex; align-items:center; gap:8px;
+  padding:8px 10px;
+  border:1px solid var(--stroke);
+  border-radius:999px;
+  background: rgba(0,0,0,.18);
+}
+.pill select{
+  border:none; background:transparent; color:var(--text);
+  outline:none; font-weight:700;
+}
+.pill input{
+  border:none; background:transparent; color:var(--text);
+  outline:none; min-width:260px;
+}
+.searchPill{padding-right:12px}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:10px;
+}
+.field label{display:block; font-size:12px; color:var(--muted); margin-bottom:6px}
+.field input, .field select, .field textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--stroke);
+  background: rgba(0,0,0,.18);
+  color:var(--text);
+  outline:none;
+}
+.field textarea{min-height:74px; resize:vertical}
+.field select{cursor:pointer}
+.field .hint{margin-top:6px}
+.span2{grid-column:span 2}
+
+.actions{
+  display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+  margin-top:12px;
+}
+.pushRight{margin-left:auto}
+
+.btn{
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--stroke);
+  background: rgba(0,0,0,.22);
+  color:var(--text);
+  cursor:pointer;
+  font-weight:800;
+}
+.btn.primary{
+  background: linear-gradient(135deg, var(--brand), rgba(138,92,255,.75));
+  border-color: rgba(138,92,255,.45);
+}
+.btn.danger{
+  background: rgba(255,59,92,.18);
+  border-color: rgba(255,59,92,.35);
+  color: #ffd7de;
+}
+
+.thumb{
+  width:64px;height:64px;
+  border-radius:16px;
+  object-fit:cover;
+  border:1px solid var(--stroke);
+  background: rgba(0,0,0,.18);
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:10px;
+  margin: 0 0 14px 0;
+}
+.statCard{
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border:1px solid var(--stroke);
+  border-radius:var(--r);
+  padding:12px;
+}
+.statCard.danger{
+  border-color: rgba(255,59,92,.35);
+  background: rgba(255,59,92,.10);
+}
+.statLabel{font-size:12px}
+.statValue{font-size:22px;font-weight:900;margin-top:6px}
+
+.tableWrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+}
+table{width:100%; min-width: 1300px; border-collapse:separate; border-spacing:0}
+th,td{padding:10px 10px; border-bottom:1px solid rgba(255,255,255,.08); vertical-align:top}
+th{font-size:12px;color:var(--muted); text-align:left; background: rgba(0,0,0,.18)}
+td{background: rgba(0,0,0,.10)}
+tbody tr:hover td{background: rgba(255,255,255,.04)}
+td input, td select{
+  width:100%;
+  min-width:120px;
+  padding:8px 10px;
+  border-radius:12px;
+  border:1px solid var(--stroke);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+}
+.badge{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid var(--stroke);
+  font-size:12px;
+  white-space:nowrap;
+}
+.badge.danger{border-color: rgba(255,59,92,.35); background: rgba(255,59,92,.12); color:#ffd7de}
+.badge.ok{border-color: rgba(38,231,166,.35); background: rgba(38,231,166,.10); color:#caffe9}
+
+.overdueRow td{
+  outline: 2px solid rgba(255,59,92,.35);
+  outline-offset:-2px;
+}
+
+.cards{display:grid; gap:10px}
+.cardItem{
+  border:1px solid var(--stroke);
+  border-radius:var(--r);
+  background: rgba(0,0,0,.16);
+  padding:12px;
+}
+.cardTop{display:flex; gap:12px; align-items:center}
+.cardMeta{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+.cardLine{display:flex; justify-content:space-between; gap:10px; margin-top:8px}
+.cardLine .muted{font-size:11px}
+
+/* responsive */
+@media (max-width: 980px){
+  .grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .span2{grid-column: span 2}
+  .stats{grid-template-columns:repeat(2, minmax(0,1fr))}
+  .pill input{min-width:200px}
+}
+@media (max-width: 640px){
+  .desktopOnly{display:none}
+  .mobileOnly{display:block}
+  .pill input{min-width:160px}
+}
+@media (min-width: 641px){
+  .mobileOnly{display:none}
+}
+.thumb{
+  background: rgba(0,0,0,.35);
+  color: #fff;
+}
+select{
+  background-color: #071030;
+  color: #eaf0ff;
+  border: 1px solid rgba(255,255,255,.15);
+}
+select option{
+  background-color: #070f2e;
+  color: #eaf0ff;
+}
