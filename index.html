@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FF Inventory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow"></div>
+
+  <!-- LOGIN -->
+  <main class="wrap">
+    <section id="loginCard" class="card auth">
+      <div class="authHeader">
+        <div class="logoDot"></div>
+        <div>
+          <h1>FF Inventory Of Jordan</h1>
+          <p class="muted">Admin login only</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <label>Email</label>
+          <input id="loginEmail" type="email" placeholder="vaoduocbangmat@gmail.com" autocomplete="username" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input id="loginPass" type="password" placeholder="......" autocomplete="current-password" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" id="btnLogin">Login</button>
+      </div>
+
+      <div id="loginMsg" class="muted"></div>
+    </section>
+
+    <!-- APP -->
+    <section id="app" class="hidden">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="brand">
+          <div class="logoDot"></div>
+          <div>
+            <div class="title">Jordan's Accounts</div>
+            <div class="subtitle muted">Private account</div>
+          </div>
+        </div>
+
+        <div class="topActions">
+          <div class="pill">
+            <span class="pillLabel muted">Filter</span>
+           <select id="statusFilter">
+  <option value="ALL">All</option>
+  <option value="Available">Available</option>
+  <option value="Installment">Installment</option>
+  <option value="Sold">Sold</option>
+</select>
+          </div>
+
+          <div class="pill searchPill">
+            <input id="search" placeholder="Search" />
+          </div>
+
+          <button class="btn" id="btnLogout">Sign out</button>
+        </div>
+      </header>
+
+      <!-- Stats -->
+      <section class="stats">
+        <div class="statCard">
+          <div class="statLabel muted">Total</div>
+          <div class="statValue" id="statTotal">0</div>
+        </div>
+        <div class="statCard">
+          <div class="statLabel muted">Available</div>
+          <div class="statValue" id="statAvail">0</div>
+        </div>
+        <div class="statCard">
+          <div class="statLabel muted">Installment</div>
+          <div class="statValue" id="statInst">0</div>
+        </div>
+        <div class="statCard danger">
+          <div class="statLabel muted">Overdue</div>
+          <div class="statValue" id="statOverdue">0</div>
+        </div>
+      </section>
+
+      <!-- Form -->
+      <section class="card">
+        <div class="cardHeader">
+          <h2>Add / Update</h2>
+          <p class="muted">Fill in details and hit Save. Edit from the list.</p>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label>ID (leave blank to auto-generate)</label>
+            <input id="id" placeholder="xx" />
+          </div>
+          <div class="field">
+            <label>Price</label>
+            <input id="price" type="number" step="1000" placeholder="xx" />
+          </div>
+          <div class="field">
+            <label>Paid / Deposit</label>
+            <input id="depositPaid" type="number" step="1000" placeholder="xx" />
+          </div>
+          <div class="field">
+            <label>Remaining (auto)</label>
+            <input id="remaining" disabled placeholder="Automatic" />
+          </div>
+
+        
+          <div class="field">
+            <label>Email acc</label>
+            <input id="emailAcc" placeholder="acc@gmail.com" />
+          </div>
+          <div class="field">
+            <label>Parent email</label>
+            <input id="emailParent" placeholder="parent@gmail.com" />
+          </div>
+
+          <div class="field">
+            <label>Status</label>
+            <select id="status">
+              <option>Available</option>
+              <option>Reserved</option>
+              <option>Installment</option>
+              <option>Sold</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Installment due</label>
+            <input id="installmentDue" type="date" />
+          </div>
+
+          <div class="field span2">
+            <label>Note</label>
+            <textarea id="note" placeholder="Payment plan, reminders..."></textarea>
+          </div>
+
+
+        <div class="actions">
+          <button class="btn primary" id="btnSave">Save</button>
+          <button class="btn" id="btnClear">Clear</button>
+          <button class="btn danger" id="btnDelete">Delete by ID</button>
+          <div id="msg" class="muted pushRight"></div>
+        </div>
+      </section>
+
+      <!-- List -->
+      <section class="card">
+        <div class="cardHeader">
+          <h2>Accounts</h2>
+          <p class="muted">Click on an item to edit</p>
+        </div>
+
+        <!-- desktop table -->
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Price</th>
+                <th>Paid</th>
+                <th>Remain</th>
+                <th>Email</th>
+                <th>Parent email</th>
+                <th></th>
+                <th>Status</th>
+                <th>Due</th>
+                <th>Remaining Day</th>
+                <th> Change </th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
